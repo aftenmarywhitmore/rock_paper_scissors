@@ -3,6 +3,17 @@ import random
 
 moves = ["rock", "paper", "scissors"]
 
+game_instructions = "At the beginning of each duel, you will be asked to select between rock, paper or scissors." \
+    " Our razzle dazzle randomizer will select the computer's weapon of choice at random and your duel shall commence." \
+        " \n\nIf the borings of life are calling your name, you can exit the game at any time by entering, 'quit' and should" \
+            " the luck of life be more like a dooms day cloud, after five losses, you will be given the option to select dynamite." \
+                " \n\nMake your selection carefully because this dynamite is highly unstable and will blow up not just your opponets " \
+                    "weapon, but the entire game. \n\nGood luck noble warrior, you're going to need it."
+
+user_gamertag = input("What is your name/gamertag? ")
+
+print(game_instructions)
+
 def play():
     play_options = ["rock", "paper", "scissors"]
     play = True
@@ -17,8 +28,8 @@ def play():
 
             if dyn == "yes":
                     print("KABOOM!")
-                    print(f"Game Results: \n win: {win} \n lose: {lose} \n tie {tie}")
-                    play = False
+                    print(f"GAME OVER\n {user_gamertag}'s Game Results: \n win: {win} \n lose: {lose} \n tie {tie}")
+                    break
 
         user_input = input("Enter (rock, paper, scissors, quit): ")
         computer_input =  (random.choice(play_options))
@@ -30,7 +41,7 @@ def play():
                 print("Rock destroyed scissors! You win!")
             elif computer_input == user_input:
                 tie += 1
-                print("tie")
+                print("You tied")
             else:
                 lose += 1
                 print("Paper smothered rock to death! You lose.")
@@ -58,7 +69,9 @@ def play():
                 print("Rock destroyed scissors! You lose.")
 
         elif user_input == "quit":
-            print(f"Game Results: \n win: {win} \n lose: {lose} \n tie {tie}")
+            print(f"GAME OVER\n {user_gamertag}'s Game Results: \n win: {win} \n lose: {lose} \n tie {tie}")
             play = False
+
+    return "\nToday's entertainment has been brought to you by Pegasus and Hercules!"
 
 print(play())
